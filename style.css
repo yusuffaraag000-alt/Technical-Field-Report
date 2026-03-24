@@ -1,0 +1,253 @@
+/* Project: Al-Zahra Egg Farm Technical Report
+   Style: Professional, Modern, Gold & Dark Theme
+*/
+
+/* 1. Root Variables & Reset */
+:root {
+    --primary-gold: #C5A02B;
+    --gold-hover: #E4BD42;
+    --dark-deep: #121212;
+    --dark-surface: #1E1E1E;
+    --light-bg: #FCFCFC;
+    --text-main: #2D3436;
+    --text-muted: #636E72;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* 2. Layout Containers */
+.container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 3. Typography Hierarchy */
+h1, h2, h3 {
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-right: 5px solid var(--primary-gold);
+    padding-right: 1rem;
+}
+
+/* 4. Hero Section Styles */
+.hero-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f2f6 100%);
+    position: relative;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--dark-deep);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+/* 5. Professional Cards */
+.info-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: var(--transition-smooth);
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(197, 160, 43, 0.1);
+}
+
+.dark-card {
+    background: var(--dark-deep);
+    color: white;
+    border-radius: 2rem;
+    padding: 2.5rem;
+}
+
+/* 6. Technical Tables Styling */
+.table-container {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+table {
+    width: bold;
+    border-collapse: collapse;
+    background: white;
+}
+
+thead {
+    background: var(--dark-deep);
+    color: var(--primary-gold);
+}
+
+th {
+    padding: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 1.2rem;
+    border-bottom: 1px solid #f1f1f1;
+    text-align: center;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: rgba(197, 160, 43, 0.03);
+}
+
+/* 7. Image Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: var(--transition-smooth);
+}
+
+.gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* 8. Mobile Responsiveness */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-wrapper h1 {
+        font-size: 2.5rem;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+}
+
+/* 9. Animations */
+[data-aos] {
+    pointer-events: none;
+}
+
+.gold-gradient-text {
+    background: linear-gradient(to right, var(--primary-gold), var(--gold-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 أعمدة */
+    grid-auto-rows: 250px; /* ارتفاع الصف الواحد */
+    gap: 20px;
+}
+
+.bento-item {
+    position: relative;
+    border-radius: 24px; /* زوايا دائرية فخمة */
+    overflow: hidden;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* التحكم في أحجام الصور */
+.span-2 { grid-column: span 2; } /* تأخذ عرض عمودين */
+.row-span-2 { grid-row: span 2; } /* تأخذ ارتفاع صفين */
+
+.bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.bento-overlay h4 {
+    color: #C5A02B;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transform: translateY(10px);
+    transition: transform 0.5s ease;
+}
+
+/* Hover Effects */
+.bento-item:hover img {
+    transform: scale(1.08);
+}
+
+.bento-item:hover .bento-overlay {
+    opacity: 1;
+}
+
+.bento-item:hover .bento-overlay h4 {
+    transform: translateY(0);
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 1024px) {
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .span-2, .row-span-2 { grid-column: span 1; grid-row: span 1; }
+}
+
+@media (max-width: 640px) {
+    .bento-grid { grid-template-columns: 1fr; }
+}
